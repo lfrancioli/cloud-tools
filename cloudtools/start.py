@@ -197,7 +197,7 @@ def main(args):
     ]
 
     if args.max_idle:
-        cmd.insert('beta',1)
+        cmd.insert(1, 'beta')
         cmd.append('--max-idle={}'.format(args.max_idle))
 
     # print underlying gcloud command

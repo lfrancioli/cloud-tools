@@ -1,5 +1,5 @@
 import sys
-from subprocess import call, check_call
+from subprocess import check_call
 
 
 def init_parser(parser):
@@ -52,7 +52,7 @@ def main(args):
         # Update cluster
         if not args.dry_run:
             print("Updating cluster '{}'...".format(args.name))
-            call(cmd)
+            check_call(cmd, stdout=sys.stdout, stderr=sys.stderr)
 
     if (args.jar is not None):
         print('gcloud jar update command(s):')

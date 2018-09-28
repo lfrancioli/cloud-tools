@@ -39,7 +39,7 @@ def parse_schema(s):
             else:
                 i += 1
 
-        raise Exception(f'End of {element_type} not found')
+        raise Exception('End of {} not found'.format(element_type))
 
     start_schema_index = s.index('{')
     return parse_type(s[start_schema_index+1:], "}", s[:start_schema_index])[0]
@@ -75,7 +75,7 @@ def key_str(k):
     if isinstance(k, dict):
         return '[{}]'.format(', '.join([key_str(x) for x in k['value']]))
     else:
-        return f"'{k}'"
+        return "'{}'".format(k)
 
 
 def get_partitions_info_str(j):
@@ -95,7 +95,7 @@ def get_partitions_info_str(j):
         })
 
 
-    return f"\n{IDENT}".join(['{}: {}'.format(k, v) for k, v in partitions_info.items()])
+    return "\n{}".format(IDENT).join(['{}: {}'.format(k, v) for k, v in partitions_info.items()])
 
 
 def init_parser(parser):
